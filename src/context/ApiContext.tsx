@@ -21,7 +21,7 @@ export const defaultModels: Record<ProviderType, string> = {
   groq: 'llama-3.2-90b-vision-preview',
   xai: 'grok-vision-beta',
   qwen: 'qwen-vl-max',
-  deepseek: 'deepseek-chat',
+  deepseek: 'deepseek-chat', 
 };
 
 interface ApiContextType {
