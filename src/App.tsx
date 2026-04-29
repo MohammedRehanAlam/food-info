@@ -3,6 +3,7 @@ import { ApiProvider, useApi } from './context/ApiContext';
 import { KeyManager } from './components/KeyManager';
 import { ImageUploader } from './components/ImageUploader';
 import { ResultsDisplay } from './components/ResultsDisplay';
+import { Background } from './components/Background';
 import { analyzeImage, type NutritionInfo } from './services/aiProviders';
 import { Utensils } from 'lucide-react';
 import './styles/global.css';
@@ -42,42 +43,52 @@ const MainApp: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <KeyManager />
-      
-      <header style={{ textAlign: 'center', marginTop: '2rem', marginBottom: '2rem' }} className="animate-fade-in">
-        <div style={{ 
-          display: 'inline-flex', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          background: 'rgba(139, 92, 246, 0.1)', 
-          padding: '1rem', 
-          borderRadius: '50%',
-          marginBottom: '1rem',
-          color: 'var(--accent-primary)'
-        }}>
-          <Utensils size={40} />
-        </div>
-        <h1 style={{ 
-          fontSize: '2.5rem', 
-          fontWeight: '700', 
-          background: 'var(--gradient-accent)', 
-          WebkitBackgroundClip: 'text', 
-          WebkitTextFillColor: 'transparent',
-          marginBottom: '0.5rem'
-        }}>
-          Food Analyzer
-        </h1>
-        <p style={{ color: 'var(--text-secondary)' }}>
-          Snap a photo and instantly get nutritional information using AI.
-        </p>
-      </header>
+    <>
+      <Background />
+      <div className="container">
+        <KeyManager />
+        
+        <header style={{ textAlign: 'center', marginTop: '2rem', marginBottom: '4rem' }} className="animate-fade-in">
+          <div style={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            background: 'rgba(139, 92, 246, 0.1)', 
+            padding: '1.25rem', 
+            borderRadius: '1.25rem',
+            marginBottom: '1.5rem',
+            color: 'var(--accent-primary)',
+            boxShadow: '0 0 20px rgba(139, 92, 246, 0.2)'
+          }}>
+            <Utensils size={44} />
+          </div>
+          <h1 style={{ 
+            fontSize: '3.5rem', 
+            fontWeight: '800', 
+            letterSpacing: '-0.025em',
+            background: 'var(--gradient-accent)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            marginBottom: '1rem'
+          }}>
+            Food Analyzer
+          </h1>
+          <p style={{ 
+            color: 'var(--text-secondary)',
+            fontSize: '1.125rem',
+            maxWidth: '500px',
+            margin: '0 auto'
+          }}>
+            Snap a photo and instantly get nutritional information using state-of-the-art AI.
+          </p>
+        </header>
 
-      <main>
-        <ImageUploader onImageSelected={handleImageSelected} isLoading={isLoading} />
-        <ResultsDisplay data={data} error={error} />
-      </main>
-    </div>
+        <main>
+          <ImageUploader onImageSelected={handleImageSelected} isLoading={isLoading} />
+          <ResultsDisplay data={data} error={error} />
+        </main>
+      </div>
+    </>
   );
 };
 
