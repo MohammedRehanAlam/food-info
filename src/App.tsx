@@ -4,7 +4,7 @@ import { KeyManager } from './components/KeyManager';
 import { ImageUploader } from './components/ImageUploader';
 import { ResultsDisplay } from './components/ResultsDisplay';
 import { analyzeImage, type NutritionInfo } from './services/aiProviders';
-import { Utensils } from 'lucide-react';
+import { Sparkles, Utensils } from 'lucide-react';
 import './styles/global.css';
 
 const MainApp: React.FC = () => {
@@ -45,32 +45,32 @@ const MainApp: React.FC = () => {
     <div className="container">
       <KeyManager />
       
-      <header style={{ textAlign: 'center', marginTop: '2rem', marginBottom: '2rem' }} className="animate-fade-in">
-        <div style={{ 
-          display: 'inline-flex', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          background: 'rgba(139, 92, 246, 0.1)', 
-          padding: '1rem', 
-          borderRadius: '50%',
-          marginBottom: '1rem',
-          color: 'var(--accent-primary)'
-        }}>
-          <Utensils size={40} />
+      <header className="app-header animate-fade-in">
+        <div className="floating-container">
+          <div className="rotating-ring"></div>
+          <div className="inner-ring">
+            <Utensils size={32} className="header-icon" />
+          </div>
         </div>
-        <h1 style={{ 
-          fontSize: '2.5rem', 
-          fontWeight: '700', 
-          background: 'var(--gradient-accent)', 
-          WebkitBackgroundClip: 'text', 
-          WebkitTextFillColor: 'transparent',
-          marginBottom: '0.5rem'
-        }}>
-          Food Analyzer
+        
+        <div className="ai-badge">
+          <Sparkles size={14} className="sparkle-icon" />
+          <span>AI-POWERED RECOGNITION</span>
+        </div>
+
+        <h1 className="main-title">
+          Food <span className="title-gradient">Analyzer</span>
         </h1>
-        <p style={{ color: 'var(--text-secondary)' }}>
-          Snap a photo and instantly get nutritional information using AI.
+        
+        <p className="subtitle">
+          Upload photo of any food and instantly unlock its nutritional secrets, ingredients, and dietary information.
         </p>
+
+        <div className="separator">
+          <span className="dot"></span>
+          <span className="line"></span>
+          <span className="dot"></span>
+        </div>
       </header>
 
       <main>

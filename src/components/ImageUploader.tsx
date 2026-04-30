@@ -73,11 +73,15 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelected, i
             disabled={isLoading}
           />
           <div className="upload-content">
-            <div className="icon-pulse">
-              <UploadCloud size={48} className="upload-icon" />
+            <div className="icon-pulse-glow">
+              <UploadCloud size={28} className="upload-icon-inner" />
             </div>
             <h3>Tap to upload or drag image</h3>
-            <p>Supports JPG, PNG, WEBP</p>
+            <div className="format-badges">
+              <span className="format-badge">JPG</span>
+              <span className="format-badge">PNG</span>
+              <span className="format-badge">WEBP</span>
+            </div>
           </div>
         </label>
       ) : (
@@ -91,7 +95,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelected, i
           {isLoading && (
             <div className="loading-overlay">
               <div className="spinner"></div>
-              <p>Analyzing food...</p>
+              <p className="analyzing-text">Analyzing food...</p>
             </div>
           )}
         </div>
